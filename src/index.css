@@ -11,3 +11,35 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Header */
+
+header {
+  display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: baseline;
+}
+
+a {
+  text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.barra-footer {
+    background-color: #309ca1;
+    padding-bottom: 2rem;
+}
+
+.estilos-nav {
+    display: flex;
+    gap: 5rem;
+}
+
+.img-carrito {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
