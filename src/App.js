@@ -1,11 +1,13 @@
-import Header from "./components/Header";
-
+import NavBar from "./components/NavBar";
+import ItemListContainer from "./components/ItemListContainer";
 
 function App() {
   return (
     <div className="">
-      <Header />
-
+      <NavBar />
+      <ItemListContainer 
+        greeting="La tienda de deportes top 1 del pais!"
+      />
     </div>
   );
 }

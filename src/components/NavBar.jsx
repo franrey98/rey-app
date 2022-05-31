@@ -1,4 +1,5 @@
 import React from 'react'
+import CartWidget from './CartWidget'
 
 const Header = () => {
     return (
@@ -10,7 +11,7 @@ const Header = () => {
                     <a href="#">Productos</a>
                     <a href="#">Contacto</a>
                 </nav>
-                <img src="./src\img\carrito.png" className='img-carrito' alt="carrito" />
+                <CartWidget />
             </header>
         </div>
     )
