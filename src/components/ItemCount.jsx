@@ -16,6 +16,11 @@ const ItemCount = () => {
         }
     }
 
+    const onAdd = () => {
+        console.log(`Añadir al carrito ${initial} cantidades`)
+    }
+
+
     return (
         <div>
             <h1 className='h1-centrado'>Item Count</h1>
@@ -24,7 +29,7 @@ const ItemCount = () => {
                 <p className='parrafo-contador'>{initial}</p>
                 <button className='boton-operacion' onClick={onSuma}>+</button>
             </div>
-            <input className='boton-contador' type="submit" value="Agregar al Carrito" />
+            <input onClick={onAdd} className='boton-contador' type="submit" value="Agregar al Carrito" />
         </div>
     )
 }
