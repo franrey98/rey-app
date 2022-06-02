@@ -2,17 +2,17 @@ import { useState } from 'react'
 
 const ItemCount = () => {
 
-    const [initial, setinitial] = useState(1)
+    const [initial, setInitial] = useState(1)
 
     const onSuma = () => {
         if (initial <= 4) {
-            setinitial(initial + 1)
+            setInitial(initial + 1)
         }
     }
 
     const onResta = () => {
         if (initial > 1) {
-            setinitial(initial - 1)
+            setInitial(initial - 1)
         }
     }
 
