@@ -1,23 +1,23 @@
 import { useState } from 'react'
 
-const ItemCount = () => {
+const ItemCount = ({ initial, stock }) => {
 
-    const [initial, setInitial] = useState(1)
+    const [counter, setCounter] = useState(initial)
 
     const onSuma = () => {
-        if (initial <= 4) {
-            setInitial(initial + 1)
+        if (counter < stock) {
+            setCounter(counter + 1)
         }
     }
 
     const onResta = () => {
-        if (initial > 1) {
-            setInitial(initial - 1)
+        if (counter <= stock) {
+            setCounter(counter - 1)
         }
     }
 
     const onAdd = () => {
-        console.log(`Añadir al carrito ${initial} cantidades`)
+        console.log(`Añadir al carrito ${counter} cantidades`)
     }
 
 
@@ -26,7 +26,7 @@ const ItemCount = () => {
             <h1 className='h1-centrado'>Item Count</h1>
             <div className='display-contador'>
                 <button className='boton-operacion' onClick={onResta}>-</button>
-                <p className='parrafo-contador'>{initial}</p>
+                <p className='parrafo-contador'>{counter}</p>
                 <button className='boton-operacion' onClick={onSuma}>+</button>
             </div>
             <input onClick={onAdd} className='boton-contador' type="submit" value="Agregar al Carrito" />
