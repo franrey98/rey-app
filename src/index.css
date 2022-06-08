@@ -56,6 +56,13 @@ a {
     justify-content: center;
     align-items: center;
     margin-top: 2rem;
+    gap: 1rem;
+}
+
+.display-contador span {
+  color: black;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .h1-centrado {
@@ -86,4 +93,19 @@ a {
     padding: 0.5rem;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.display-productos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.display-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+  cursor: pointer;
 }
