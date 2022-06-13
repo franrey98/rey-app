@@ -1,5 +1,6 @@
 import NavBar from "./components/NavBar";
 import ItemListContainer from "./components/ItemListContainer";
+import ItemDetailContainer from "./components/ItemDetailContainer";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <ItemListContainer 
         greeting="La tienda de deportes top 1 del pais!"
       />
+      <ItemDetailContainer />
     </div>
   );
 }
