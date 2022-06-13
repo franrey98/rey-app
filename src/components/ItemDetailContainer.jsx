@@ -15,11 +15,9 @@ const ItemDetailContainer = () => {
     }, [item])
 
     return (
-        <div>
-            <ItemDetail
-                item={item}
-            />
-        </div>
+        <>
+            {item.id && <ItemDetail item={item} />}
+        </>
     )
 }
 
