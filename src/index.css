@@ -29,6 +29,10 @@ a {
     font-weight: 500;
 }
 
+li {
+  list-style: none;
+}
+
 .h1-greeting {
   text-align: center;
 }
@@ -108,4 +112,9 @@ a {
   justify-content: center;
   margin: 1rem;
   cursor: pointer;
+}
+
+.navbar-activo {
+  background-color: #a13030;
+  
 }
