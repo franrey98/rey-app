@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import customFetch from '../utils/CustomFetch'
+import { customFetch } from '../utils/CustomFetch'
 import Products from '../utils/Products'
 import ItemList from './ItemList'
 
