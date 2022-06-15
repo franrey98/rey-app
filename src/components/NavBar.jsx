@@ -1,12 +1,14 @@
 import React from 'react'
 import CartWidget from './CartWidget'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 const NavBar = () => {
     return (
         <div className='barra-footer'>
             <header>
-                <h1>Tienda de Deportes</h1>
+                <Link to='/'>
+                    <h1>Tienda de Deportes</h1>
+                </Link>
                 <ul className='estilos-nav'>
                     <li>
                         <NavLink className={({ isActive }) => (isActive ? "navbar-activo" : '')} to='/'>Inicio</NavLink>
