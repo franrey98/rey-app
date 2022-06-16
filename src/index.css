@@ -81,6 +81,10 @@ li {
     margin-right: 1rem;
 }
 
+.span-contador {
+  color: red;
+}
+
 .boton-contador {
     background-color: #309ca1;
     color: white;
