@@ -11,7 +11,7 @@ const NavBar = () => {
                 </Link>
                 <ul className='estilos-nav'>
                     <li>
-                        <NavLink className={({ isActive }) => (isActive ? "navbar-activo" : '')} to='/'>Inicio</NavLink>
+                        <NavLink to='/'>Inicio</NavLink>
                     </li>
                     <li>
                         <NavLink className={({ isActive }) => (isActive ? "navbar-activo" : '')} to='/productos'>Productos</NavLink>
