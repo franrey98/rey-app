@@ -1,8 +1,7 @@
+import ItemDetail from './ItemDetail'
 import { useState, useEffect } from 'react'
 import { getProductsById } from '../utils/CustomFetch'
-import ItemDetail from './ItemDetail'
 import { useParams } from 'react-router-dom'
-
 
 
 const ItemDetailContainer = () => {
@@ -14,6 +13,7 @@ const ItemDetailContainer = () => {
     useEffect(() => {
         getProductsById(parseInt(id))
             .then(response => { setItem(response) })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [item])
 
     return (

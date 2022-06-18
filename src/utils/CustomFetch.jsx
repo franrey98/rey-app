@@ -16,10 +16,10 @@ export const getProductsById = (id) => {
     });
 }
 
-export const getProductsByCategory = (category) => {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(Products.filter(product => product.category === category));
-        }, 500);
-    });
-}
+// export const getProductsByCategory = (category) => {
+//     return new Promise((resolve) => {
+//         setTimeout(() => {
+//             resolve(Products.filter(product => product.category === category));
+//         }, 500);
+//     });
+// }
