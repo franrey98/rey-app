@@ -13,8 +13,7 @@ const ItemDetailContainer = () => {
     useEffect(() => {
         getProductsById(parseInt(id))
             .then(response => { setItem(response) })
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [item])
+    }, [id])
 
     return (
         <>
