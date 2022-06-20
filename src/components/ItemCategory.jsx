@@ -1,21 +1,19 @@
-import { Link, useParams } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 const ItemCategory = () => {
-
-    const { category } = useParams()
 
     return (
         <div>
             <h1>Categorias de Productos</h1>
             <ul className="style-category">
                 <li>
-                    <Link className="btn-category" to={`/categorias/${category}`}>Zapatillas</Link>
+                    <NavLink className="btn-category" to="zapatillas">Zapatillas</NavLink>
                 </li>
                 <li>
-                    <Link className="btn-category" to={`/categorias/${category}`}>Remeras</Link>
+                    <NavLink className="btn-category" to="remeras">Remeras</NavLink>
                 </li>
                 <li>
-                    <Link className="btn-category" to={`/categorias/${category}`}>Futbol</Link>
+                    <NavLink className="btn-category" to="futbol">Futbol</NavLink>
                 </li>
             </ul>
         </div>

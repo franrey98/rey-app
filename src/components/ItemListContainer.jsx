@@ -3,7 +3,6 @@ import ItemList from './ItemList'
 import Loader from './Loader'
 import { useState, useEffect } from 'react'
 import { customFetch } from '../utils/CustomFetch'
-
 const ItemListContainer = ({ greeting }) => {
 
     const [items, setItems] = useState([])
