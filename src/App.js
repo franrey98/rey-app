@@ -5,6 +5,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import ItemCategory from "./components/ItemCategory";
 import RouteError from "./components/RouteError";
 import ItemCategorySelect from "./components/ItemCategorySelect";
+import Cart from "./components/Cart";
 import { CartProvider } from "./context/CartContext"; 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
@@ -20,6 +21,7 @@ function App() {
               <Route path="/categorias" element={<ItemCategory/>} />
               <Route path="/productos/:id" element={<ItemDetailContainer />} />
               <Route path="/categorias/:category" element={<ItemCategorySelect/>} />
+              <Route path="/carrito" element={<Cart/>} />
               <Route path="*" element={<RouteError/>} />
             </Routes> 
       </BrowserRouter>

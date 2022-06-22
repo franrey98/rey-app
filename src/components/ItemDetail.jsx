@@ -15,11 +15,16 @@ const ItemDetail = ({ item }) => {
 
     const onAddToCart = () => {
         resultadoContext.addItem(item, cantidadSeleccionada)
+        console.log(cantidadSeleccionada)
+    }
+
+    const onRemoveFromCart = () => {
+        resultadoContext.removeItem(item)
     }
 
     return (
         <div className='display-detail'>
-            {cantidadSeleccionada > 0 ? "Tu compra se agrego al carrito" : <div>
+            <div>
                 <h1>{item.name}</h1>
                 <img src={item.image} alt={item.name} />
                 <p>{item.descripcion}</p>
@@ -27,7 +32,8 @@ const ItemDetail = ({ item }) => {
                 <p>Stock: {item.stock}</p>
                 <ItemCount stock={item.stock} onAdd={onAdd} initial={1} />
                 <button onClick={onAddToCart}>Agregar al carrito</button>
-            </div>}
+                <button onClick={onRemoveFromCart}>Eliminar del carrito</button>
+            </div>
 
         </div>
     )

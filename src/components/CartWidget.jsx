@@ -10,8 +10,11 @@ const CartWidget = () => {
     return (
         <div>
             <img src={carrito} className='img-carrito' alt="carrito" />
-            <p>{resultadoContext.cantidadTotal}</p>
-            <p>{resultadoContext.precioTotal}</p>
+            {resultadoContext.cart.length > 0 ? <div>
+                <p>{resultadoContext.cantidadTotal}</p>
+                <p>{resultadoContext.precioTotal}</p>
+            </div> : <p>No hay productos en el carrito</p>}
+
         </div>
     )
 }

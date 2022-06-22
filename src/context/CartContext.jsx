@@ -8,17 +8,26 @@ export const CartProvider = ({ children }) => {
     const [cantidadTotal, setCantidadTotal] = useState(0);
     const [precioTotal, setPrecioTotal] = useState(0);
 
-    const addItem = (item) => {
+    const addItem = (item, cantidad) => {
         setCart([...cart, item]);
-        setCantidadTotal(cantidadTotal + item.cantidad);
-        setPrecioTotal(precioTotal + item.precio);
+        setCantidadTotal(cantidadTotal + cantidad);
+        setPrecioTotal(precioTotal + item.precio * cantidad);
     }
+
+    const removeItem = (item) => {
+        setCart(cart.filter(i => i.id !== item.id));
+        setCantidadTotal(cantidadTotal - item.cantidad);
+        setPrecioTotal(precioTotal - item.precio * item.cantidad);
+    }
+
 
     const valorCarrito = {
         cart: cart,
         cantidadTotal: cantidadTotal,
         precioTotal: precioTotal,
-        addItem: addItem
+        addItem: addItem,
+        removeItem: removeItem
+
     }
 
     return (
