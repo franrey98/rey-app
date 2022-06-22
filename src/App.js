@@ -5,11 +5,13 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import ItemCategory from "./components/ItemCategory";
 import RouteError from "./components/RouteError";
 import ItemCategorySelect from "./components/ItemCategorySelect";
+import { CartProvider } from "./context/CartContext"; 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 
 function App() {
   return (
+    <CartProvider>
       <BrowserRouter>
           <NavBar />
             <Routes>
@@ -21,6 +23,7 @@ function App() {
               <Route path="*" element={<RouteError/>} />
             </Routes> 
       </BrowserRouter>
+    </CartProvider>
   );
 }
 
