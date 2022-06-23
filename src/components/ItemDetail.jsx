@@ -25,14 +25,20 @@ const ItemDetail = ({ item }) => {
     return (
         <div className='display-detail'>
             <div>
-                <h1>{item.name}</h1>
-                <img src={item.image} alt={item.name} />
-                <p>{item.descripcion}</p>
-                <p>Precio: ${item.precio}</p>
-                <p>Stock: {item.stock}</p>
-                <ItemCount stock={item.stock} onAdd={onAdd} initial={1} />
-                <button onClick={onAddToCart}>Agregar al carrito</button>
-                <button onClick={onRemoveFromCart}>Eliminar del carrito</button>
+                {
+                    resultadoContext.cart.length > 0 ? 'Su compra ha sido agregada al carrito' :
+                        <div>
+
+                            <h1>{item.name}</h1>
+                            <img src={item.image} alt={item.name} />
+                            <p>{item.descripcion}</p>
+                            <p>Precio: ${item.precio}</p>
+                            <p>Stock: {item.stock}</p>
+                            <ItemCount stock={item.stock} onAdd={onAdd} initial={1} />
+                            <button onClick={onAddToCart}>Agregar al carrito</button>
+                            <button onClick={onRemoveFromCart}>Eliminar del carrito</button>
+                        </div>
+                }
             </div>
 
         </div>

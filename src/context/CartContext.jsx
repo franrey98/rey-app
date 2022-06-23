@@ -5,11 +5,13 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
 
     const [cart, setCart] = useState([]);
+    const [nombreCategoria, setNombreCategoria] = useState("");
     const [cantidadTotal, setCantidadTotal] = useState(0);
     const [precioTotal, setPrecioTotal] = useState(0);
 
     const addItem = (item, cantidad) => {
         setCart([...cart, item]);
+        setNombreCategoria(item.category);
         setCantidadTotal(cantidadTotal + cantidad);
         setPrecioTotal(precioTotal + item.precio * cantidad);
     }
@@ -25,6 +27,7 @@ export const CartProvider = ({ children }) => {
         cart: cart,
         cantidadTotal: cantidadTotal,
         precioTotal: precioTotal,
+        nombreCategoria: nombreCategoria,
         addItem: addItem,
         removeItem: removeItem
 

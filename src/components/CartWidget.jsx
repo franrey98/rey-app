@@ -11,8 +11,9 @@ const CartWidget = () => {
         <div>
             <img src={carrito} className='img-carrito' alt="carrito" />
             {resultadoContext.cart.length > 0 ? <div>
-                <p>{resultadoContext.cantidadTotal}</p>
-                <p>{resultadoContext.precioTotal}</p>
+                <p>Nombre de Categoria: {resultadoContext.nombreCategoria}</p>
+                <p>Cantidad Total: {resultadoContext.cantidadTotal}</p>
+                <p>Precio Total: {resultadoContext.precioTotal}</p>
             </div> : <p>No hay productos en el carrito</p>}
 
         </div>
