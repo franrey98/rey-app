@@ -16,10 +16,10 @@ export const CartProvider = ({ children }) => {
         setPrecioTotal(precioTotal + item.precio * cantidad);
     }
 
-    const removeItem = (item) => {
-        setCart(cart.filter(i => i.id !== item.id));
-        setCantidadTotal(cantidadTotal - item.cantidad);
-        setPrecioTotal(precioTotal - item.precio * item.cantidad);
+    const removeItem = () => {
+        setCart([]);
+        setCantidadTotal(0);
+        setPrecioTotal(0);
     }
 
 

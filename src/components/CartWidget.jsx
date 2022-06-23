@@ -7,6 +7,11 @@ const CartWidget = () => {
     const resultadoContext = useContext(CartContext)
     console.log(resultadoContext.cart)
 
+
+    const onRemoveFromCart = () => {
+        resultadoContext.removeItem(resultadoContext.cart)
+    }
+
     return (
         <div>
             <img src={carrito} className='img-carrito' alt="carrito" />
@@ -14,7 +19,8 @@ const CartWidget = () => {
                 <p>Nombre de Categoria: {resultadoContext.nombreCategoria}</p>
                 <p>Cantidad Total: {resultadoContext.cantidadTotal}</p>
                 <p>Precio Total: {resultadoContext.precioTotal}</p>
-            </div> : <p>No hay productos en el carrito</p>}
+                <button onClick={onRemoveFromCart} >Remover Carrito</button>
+            </div> : ''}
 
         </div>
     )
