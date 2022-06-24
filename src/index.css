@@ -212,3 +212,14 @@ li {
     transform: rotate(360deg);
   }
 }
+
+.display-cart {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.estilo-cart {
+  display: flex;
+  justify-content: center;
+}

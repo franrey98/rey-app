@@ -5,13 +5,11 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
 
     const [cart, setCart] = useState([]);
-    const [nombreCategoria, setNombreCategoria] = useState("");
     const [cantidadTotal, setCantidadTotal] = useState(0);
     const [precioTotal, setPrecioTotal] = useState(0);
 
     const addItem = (item, cantidad) => {
         setCart([...cart, item]);
-        setNombreCategoria(item.category);
         setCantidadTotal(cantidadTotal + cantidad);
         setPrecioTotal(precioTotal + item.precio * cantidad);
     }
@@ -22,15 +20,20 @@ export const CartProvider = ({ children }) => {
         setPrecioTotal(0);
     }
 
+    const removeOneItem = (item) => {
+        setCart(cart.filter(i => i.id !== item.id));
+        setCantidadTotal(cantidadTotal - 1);
+        setPrecioTotal(precioTotal - item.precio);
+    }
+
 
     const valorCarrito = {
         cart: cart,
         cantidadTotal: cantidadTotal,
         precioTotal: precioTotal,
-        nombreCategoria: nombreCategoria,
         addItem: addItem,
-        removeItem: removeItem
-
+        removeItem: removeItem,
+        removeOneItem: removeOneItem
     }
 
     return (
