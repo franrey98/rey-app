@@ -22,7 +22,7 @@ export const CartProvider = ({ children }) => {
 
     const removeOneItem = () => {
 
-        if (precioTotal > 0) {
+        if (cantidadTotal > 0) {
             setCart(cart.filter(i => i.id !== 1));
             setCantidadTotal(cantidadTotal - 1);
         }
