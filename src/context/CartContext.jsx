@@ -20,10 +20,14 @@ export const CartProvider = ({ children }) => {
         setPrecioTotal(0);
     }
 
-    const removeOneItem = (item) => {
-        setCart(cart.filter(i => i.id !== item.id));
-        setCantidadTotal(cantidadTotal - 1);
-        setPrecioTotal(precioTotal - item.precio);
+    const removeOneItem = () => {
+
+        if (precioTotal > 0) {
+            setCart(cart.filter(i => i.id !== 1));
+            setCantidadTotal(cantidadTotal - 1);
+        }
+
+        setPrecioTotal(cantidadTotal * cart[0].precio)
     }
 
 

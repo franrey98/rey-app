@@ -19,7 +19,7 @@ const Cart = () => {
         <div>
             <div className='display-cart'>
                 {resultadoContext.cart.map(item => (
-                    <div>
+                    <div key={item.id} >
                         <p>Nombre del Producto: {item.name}</p>
                         <img src={item.image} alt={item.name} />
                         <p>Precio por unidad: {item.precio}</p>

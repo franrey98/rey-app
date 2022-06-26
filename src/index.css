@@ -220,6 +220,10 @@ li {
 }
 
 .estilo-cart {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 5rem;
+    margin-left: 29rem;
+    margin-right: 30rem;
 }
