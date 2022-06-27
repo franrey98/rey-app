@@ -224,6 +224,12 @@ li {
     justify-content: center;
     flex-direction: column;
     margin-top: 5rem;
-    margin-left: 29rem;
-    margin-right: 30rem;
+}
+
+.compra-total {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
 }

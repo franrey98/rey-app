@@ -5,14 +5,10 @@ import { CartContext } from '../context/CartContext'
 
 const ItemDetail = ({ item }) => {
 
-
-    const [cantidadSeleccionada, setCantidadSeleccionada] = useState()
-
-    const resultadoContext = useContext(CartContext)
+    const { addToCart } = useContext(CartContext)
 
     const onAdd = (cantidad) => {
-        setCantidadSeleccionada(cantidad)
-        resultadoContext.addItem(item, cantidad)
+        addToCart(item, cantidad)
     }
 
     return (

@@ -5,43 +5,50 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
 
     const [cart, setCart] = useState([]);
-    const [cantidadTotal, setCantidadTotal] = useState(0);
-    const [precioTotal, setPrecioTotal] = useState(0);
 
-    const addItem = (item, cantidad) => {
-        setCart([...cart, item]);
-        setCantidadTotal(cantidadTotal + cantidad);
-        setPrecioTotal(precioTotal + item.precio * cantidad);
-    }
-
-    const removeItem = () => {
-        setCart([]);
-        setCantidadTotal(0);
-        setPrecioTotal(0);
-    }
-
-    const removeOneItem = () => {
-
-        if (cantidadTotal > 0) {
-            setCart(cart.filter(i => i.id !== 1));
-            setCantidadTotal(cantidadTotal - 1);
+    const addToCart = (item, cantidad) => {
+        if (isInCart(item.id)) {
+            let index = cart.findIndex((index) => (index.id === item.id))
+            let copyCart = [...cart]
+            copyCart[index].cantidad += cantidad
+            setCart(copyCart)
+        } else {
+            const itemToAdd = { ...item, cantidad }
+            setCart([...cart, itemToAdd])
         }
 
-        setPrecioTotal(cantidadTotal * cart[0].precio)
+    }
+    const isInCart = (item) => {
+        return cart.some(cartItem => cartItem.id === item.id);
     }
 
-
-    const valorCarrito = {
-        cart: cart,
-        cantidadTotal: cantidadTotal,
-        precioTotal: precioTotal,
-        addItem: addItem,
-        removeItem: removeItem,
-        removeOneItem: removeOneItem
+    const removeFromCart = (item) => {
+        let index = cart.findIndex((index) => (index.id === item.id))
+        let copyCart = [...cart]
+        copyCart.splice(index, 1)
+        setCart(copyCart)
     }
+
+    const cartTotal = () => {
+        return cart.reduce((total, item) => total + (item.precio * item.cantidad), 0)
+    }
+
+    const removeOneItem = (item) => {
+        if (item.cantidad >= 1) {
+            let index = cart.findIndex((index) => (index.id === item.id))
+            let copyCart = [...cart]
+            copyCart[index].cantidad--
+            setCart(copyCart)
+        }
+    }
+
+    const cartLength = () => {
+        return cart.reduce((total, item) => total + item.cantidad, 0)
+    }
+
 
     return (
-        <CartContext.Provider value={valorCarrito} >
+        <CartContext.Provider value={{ addToCart, cart, removeFromCart, cartTotal, removeOneItem, cartLength }} >
             {children}
         </CartContext.Provider>
     )

@@ -1,38 +1,31 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { CartContext } from '../context/CartContext'
 
 const Cart = () => {
 
-    const resultadoContext = useContext(CartContext)
-    console.log(resultadoContext.cart)
-
-
-    const onRemoveFromCart = () => {
-        resultadoContext.removeItem(resultadoContext.cart)
-    }
-
-    const removeItem = () => {
-        resultadoContext.removeOneItem(resultadoContext.cart)
-    }
+    const { cart, removeFromCart, cartTotal, removeOneItem, cartLength } = useContext(CartContext)
 
     return (
         <div>
-            <div className='display-cart'>
-                {resultadoContext.cart.map(item => (
-                    <div key={item.id} >
-                        <p>Nombre del Producto: {item.name}</p>
-                        <img src={item.image} alt={item.name} />
-                        <p>Precio por unidad: {item.precio}</p>
-                        <p>Cantidad: {resultadoContext.cantidadTotal}</p>
-                        <button onClick={removeItem}>Eliminar Item</button>
-                    </div>
-                ))}
+            <h1>Carrito</h1>
+            <div>
+                <div className='display-cart'>
+                    {cart.map(item => (
+                        <li className='estilo-cart' key={item.id}>
+                            <p>Nombre del Producto: {item.name}</p>
+                            <img src={item.image} alt={item.name} />
+                            <p>Cantidad de productos: {item.cantidad}</p>
+                            <p>Precio: {item.precio}</p>
+                            <button onClick={() => removeOneItem(item)}>Eliminar</button>
+                            <button onClick={() => removeFromCart(item)}>Eliminar Total de Productos</button>
+                        </li>
+                    ))}
+                </div>
+                <div className='compra-total'>
+                    <h2>Compra Total</h2>
+                    <p>Total: {cartTotal()}</p>
+                </div>
             </div>
-            {resultadoContext.cart.length > 0 ? <div className='estilo-cart'>
-                <p>Cantidad Total de Productos: {resultadoContext.cantidadTotal}</p>
-                <p>Precio Total: {resultadoContext.precioTotal}</p>
-                <button onClick={onRemoveFromCart} >Remover Carrito</button>
-            </div> : 'Agregue productos al carrito'}
         </div>
     )
 }
