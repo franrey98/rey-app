@@ -4,7 +4,7 @@ const productos = [
         name: 'Producto 1',
         precio: 100,
         stock: 5,
-        category: 'zapatillas',
+        category: 'Zapatillas',
         descripcion: 'Descripcion del producto 1',
         image: 'https://picsum.photos/200/300'
     },
@@ -13,7 +13,7 @@ const productos = [
         name: 'Producto 2',
         precio: 200,
         stock: 7,
-        category: 'remeras',
+        category: 'Remeras',
         descripcion: 'Descripcion del producto 2',
         image: 'https://picsum.photos/200/300'
     },
@@ -22,7 +22,7 @@ const productos = [
         name: 'Producto 3',
         precio: 300,
         stock: 3,
-        category: 'futbol',
+        category: 'Futbol',
         descripcion: 'Descripcion del producto 3',
         image: 'https://picsum.photos/200/300'
     },
@@ -31,7 +31,7 @@ const productos = [
         name: 'Producto 4',
         precio: 400,
         stock: 4,
-        category: 'zapatillas',
+        category: 'Zapatillas',
         descripcion: 'Descripcion del producto 4',
         image: 'https://picsum.photos/200/300'
     },
@@ -40,7 +40,7 @@ const productos = [
         name: 'Producto 5',
         precio: 500,
         stock: 5,
-        category: 'remeras',
+        category: 'Remeras',
         descripcion: 'Descripcion del producto 5',
         image: 'https://picsum.photos/200/300'
     },
@@ -49,7 +49,7 @@ const productos = [
         name: 'Producto 6',
         precio: 600,
         stock: 6,
-        category: 'futbol',
+        category: 'Futbol',
         descripcion: 'Descripcion del producto 6',
         image: 'https://picsum.photos/200/300'
     },

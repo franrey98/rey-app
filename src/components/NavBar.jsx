@@ -4,12 +4,12 @@ import { NavLink, Link } from 'react-router-dom'
 
 const NavBar = () => {
     return (
-        <div className='barra-footer'>
-            <header>
+        <div className=' bg-slate-900 pt-4 pb-4'>
+            <header className='text-xl font-semibold text-white grid grid-cols-3 items-center justify-center justify-items-center'>
                 <Link to='/'>
                     <h1>Tienda de Deportes</h1>
                 </Link>
-                <ul className='estilos-nav'>
+                <ul className='flex gap-4 estilos-nav'>
                     <li>
                         <NavLink to='/'>Inicio</NavLink>
                     </li>

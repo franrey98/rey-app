@@ -1,6 +1,6 @@
 import React from 'react'
 import ItemCount from './ItemCount'
-import { useState, useContext } from 'react'
+import { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
 
 const ItemDetail = ({ item }) => {
@@ -12,17 +12,14 @@ const ItemDetail = ({ item }) => {
     }
 
     return (
-        <div className='display-detail'>
-            <div>
-                <div>
-                    <h1>{item.name}</h1>
-                    <img src={item.image} alt={item.name} />
-                    <p>{item.descripcion}</p>
-                    <p>Precio: ${item.precio}</p>
-                    <p>Stock: {item.stock}</p>
-                    <ItemCount stock={item.stock} onAdd={onAdd} initial={1} />
-                </div>
-
+        <div className=''>
+            <div className='w-full flex flex-col items-center'>
+                <h1 className="text-xl font-bold my-4">{item.name}</h1>
+                <img className=" h-72 w-60 rounded-sm" src={item.image} alt={item.name} />
+                <p className="text-xl font-semibold my-2">{item.descripcion}</p>
+                <p className="text-xl font-semibold my-2">Precio: ${item.precio}</p>
+                <p className="font-normal text-xl">Stock: {item.stock}</p>
+                <ItemCount stock={item.stock} onAdd={onAdd} initial={1} />
             </div>
 
         </div>

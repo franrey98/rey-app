@@ -3,7 +3,11 @@ import ItemList from './ItemList'
 import Loader from './Loader'
 import { useState, useEffect } from 'react'
 import { customFetch } from '../utils/CustomFetch'
+import { db } from '../config/Firebase'
+
 const ItemListContainer = ({ greeting }) => {
+
+    console.log(db)
 
     const [items, setItems] = useState([])
 
@@ -13,13 +17,14 @@ const ItemListContainer = ({ greeting }) => {
     }, [items])
 
     return (
-        <div>
-            <h1 className='h1-greeting'>{greeting}</h1>
+        <div className=' mx-52 pb-8'>
 
             <div className=''>
-
                 {items && items.length > 0 ?
-                    <ItemList items={items} />
+                    <div>
+                        <h1 className='text-center font-bold text-2xl mt-8'>{greeting}</h1>
+                        <ItemList items={items} />
+                    </div>
                     :
                     <div>
                         <Loader />
