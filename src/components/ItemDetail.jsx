@@ -21,7 +21,6 @@ const ItemDetail = ({ item }) => {
                 <p className="font-normal text-xl">Stock: {item.stock}</p>
                 <ItemCount stock={item.stock} onAdd={onAdd} initial={1} />
             </div>
-
         </div>
     )
 }

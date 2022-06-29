@@ -5,6 +5,7 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
 
     const [cart, setCart] = useState([]);
+    const [inCart, setInCart] = useState(false);
 
     const addToCart = (item, cantidad) => {
         if (isInCart(item.id)) {
@@ -16,8 +17,9 @@ export const CartProvider = ({ children }) => {
             const itemToAdd = { ...item, cantidad }
             setCart([...cart, itemToAdd])
         }
-
+        setInCart(true)
     }
+
     const isInCart = (item) => {
         return cart.some(cartItem => cartItem.id === item.id);
     }
@@ -27,6 +29,10 @@ export const CartProvider = ({ children }) => {
         let copyCart = [...cart]
         copyCart.splice(index, 1)
         setCart(copyCart)
+        if (cart.length <= 0) {
+            setInCart(false)
+        }
+
     }
 
     const cartTotal = () => {
@@ -40,6 +46,10 @@ export const CartProvider = ({ children }) => {
             copyCart[index].cantidad--
             setCart(copyCart)
         }
+        if (cart.length === 0 || cart.every(item => item.cantidad === 0)) {
+            setInCart(false)
+            setCart([])
+        }
     }
 
     const cartLength = () => {
@@ -48,7 +58,7 @@ export const CartProvider = ({ children }) => {
 
 
     return (
-        <CartContext.Provider value={{ addToCart, cart, removeFromCart, cartTotal, removeOneItem, cartLength }} >
+        <CartContext.Provider value={{ addToCart, cart, removeFromCart, cartTotal, removeOneItem, cartLength, inCart }} >
             {children}
         </CartContext.Provider>
     )
