@@ -32,7 +32,7 @@ const Cart = () => {
                             <h2>Compra Total</h2>
                             <p>Total: {cartTotal()}</p>
                         </div>
-                        <Link to='/checkout' /* onClick={setInCartFalse} */ className='mt-4 bg-green-900 p-2 rounded-md text-white text-xl'>Ir al checkout</Link>
+                        <Link to='/checkout'  /* onClick={setInCartFalse} */ className='mt-4 bg-green-900 p-2 rounded-md text-white text-xl'>Ir al checkout</Link>
                     </div>
                 </div>
                 : <div>

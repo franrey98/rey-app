@@ -31,7 +31,7 @@ const ItemCategorySelect = () => {
 
 
     return (
-        <div className="md:mx-80 pb-12">
+        <div className="md:mx-24 pb-12">
             <h1 className="text-center font-semibold text-2xl mt-6">Categorias de Productos</h1>
             {<ItemFilter
                 items={items}

@@ -5,7 +5,7 @@ import { NavLink, Link } from 'react-router-dom'
 const NavBar = () => {
     return (
         <div className=' bg-slate-900 pt-4 pb-4'>
-            <header className='text-xl font-semibold text-white mx-24 text-center md:grid grid-cols-3 items-center justify-center justify-items-center'>
+            <header className='text-xl font-semibold text-white mx-24 text-center md:grid grid-cols-3 items-center justify-center justify-items-center gap-16'>
                 <Link to='/'>
                     <h1 className='text-2xl'>Tienda de Deportes</h1>
                 </Link>
