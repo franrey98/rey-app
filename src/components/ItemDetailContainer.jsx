@@ -1,7 +1,8 @@
 import ItemDetail from './ItemDetail'
 import { useState, useEffect } from 'react'
-import { getProductsById } from '../utils/CustomFetch'
 import { useParams } from 'react-router-dom'
+import { collectionProd } from '../config/Firebase'
+import { getDoc, doc } from 'firebase/firestore'
 
 
 const ItemDetailContainer = () => {
@@ -11,14 +12,19 @@ const ItemDetailContainer = () => {
     const { id } = useParams()
 
     useEffect(() => {
-        getProductsById(parseInt(id))
-            .then(response => { setItem(response) })
+
+        const ref = doc(collectionProd, id)
+
+        getDoc(ref).then(data => {
+            setItem({
+                id: data.id,
+                ...data.data()
+            })
+        })
     }, [id])
 
     return (
-        <>
-            {<ItemDetail {...item} item={item} />}
-        </>
+        <ItemDetail {...item} item={item} />
     )
 }
 

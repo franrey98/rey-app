@@ -7,9 +7,15 @@ import RouteError from "./components/RouteError";
 import ItemCategorySelect from "./components/ItemCategorySelect";
 import Cart from "./components/Cart";
 import Footer from "./components/Footer";
+import Checkout from "./components/Checkout";
+import Productos from "./utils/Products";
+import { addDoc } from "firebase/firestore";
+import { collectionProd } from "./config/Firebase";
 import { CartProvider } from "./context/CartContext"; 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+// Funcion para cargar todos los productos a la base de datos
+// Productos.map(producto => addDoc(collectionProd, producto));
 
 function App() {
   return (
@@ -24,6 +30,7 @@ function App() {
               <Route path="/productos/:id" element={<ItemDetailContainer />} />
               <Route path="/categorias/:category" element={<ItemCategorySelect/>} />
               <Route path="/cart" element={<Cart/>} />
+              <Route path="/checkout" element={<Checkout/>} />
               <Route path="*" element={<RouteError/>} />
             </Routes> 
           <Footer />

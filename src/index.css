@@ -12,6 +12,10 @@ body {
   margin-bottom: 40px;
 }
 
+img {
+  height: 20rem;
+}
+
 .loader {
   display: flex;
   flex-direction: column;

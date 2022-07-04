@@ -1,24 +1,41 @@
-import Products from '../utils/Products'
 import ItemList from './ItemList'
 import Loader from './Loader'
 import { useState, useEffect } from 'react'
-import { customFetch } from '../utils/CustomFetch'
 import { db } from '../config/Firebase'
+import { getDocs, collection } from 'firebase/firestore'
+// getDoc, getDocs, doc, query, where, collection 
 
 const ItemListContainer = ({ greeting }) => {
-
-    console.log(db)
 
     const [items, setItems] = useState([])
 
     useEffect(() => {
-        customFetch(3000, Products)
-            .then(r => setItems(r))
+
+        // Busco los productos en la base de datos
+        const collectionProductos = collection(db, 'productos')
+        // Hago la consulta
+        const consulta = getDocs(collectionProductos)
+
+        // const queryConsulta = query(collectionProductos, where('category', '==', category))
+
+        // Ejecuto la consulta
+        consulta.then((resultado) => {
+            // Extraigo el id de cada producto
+            const productosId = resultado.docs.map(productos => {
+                const aux = productos.data()
+                aux.id = productos.id
+                return aux
+            })
+            setItems(productosId)
+        })
+            .catch((error) => {
+                console.log(error)
+            })
     }, [items])
 
-    return (
-        <div className=' mx-52 pb-8'>
 
+    return (
+        <div className='md:mx-52 mx-20 pb-8'>
             <div className=''>
                 {items && items.length > 0 ?
                     <div>

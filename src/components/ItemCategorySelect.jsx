@@ -1,21 +1,37 @@
 import ItemFilter from "./ItemFilter"
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
-import { customFetch, getProductsByCategory } from "../utils/CustomFetch"
+import { collectionProd } from '../config/Firebase'
+import { getDocs, query, where } from 'firebase/firestore'
+
 
 const ItemCategorySelect = () => {
 
-    const { category } = useParams()
-
     const [items, setItems] = useState([])
 
+    const { category } = useParams()
+
     useEffect(() => {
-        customFetch(500, getProductsByCategory(category))
-            .then(r => setItems(r))
+
+        const ref = category
+            ? query(collectionProd, where('category', '==', category))
+            : collectionProd
+
+        getDocs(ref).then((resultado) => {
+            const productosId = resultado.docs.map(productos => {
+                return {
+                    id: productos.id,
+                    ...productos.data()
+                }
+            })
+            setItems(productosId)
+        });
     }, [category])
 
+
+
     return (
-        <div className=" mx-80">
+        <div className="md:mx-80 pb-12">
             <h1 className="text-center font-semibold text-2xl mt-6">Categorias de Productos</h1>
             {<ItemFilter
                 items={items}
