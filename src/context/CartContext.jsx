@@ -31,12 +31,9 @@ export const CartProvider = ({ children }) => {
         setCart(copyCart)
         if (cart.length <= 0) {
             setInCart(false)
+
         }
 
-    }
-
-    const cartTotal = () => {
-        return cart.reduce((total, item) => total + (item.precio * item.cantidad), 0)
     }
 
     const removeOneItem = (item) => {
@@ -52,13 +49,18 @@ export const CartProvider = ({ children }) => {
         }
     }
 
+    const cartTotal = () => {
+        return cart.reduce((total, item) => total + (item.precio * item.cantidad), 0)
+    }
+
+
     const cartLength = () => {
         return cart.reduce((total, item) => total + item.cantidad, 0)
     }
 
 
     return (
-        <CartContext.Provider value={{ addToCart, cart, removeFromCart, cartTotal, removeOneItem, cartLength, inCart, setInCart }} >
+        <CartContext.Provider value={{ addToCart, cart, setCart, removeFromCart, cartTotal, removeOneItem, cartLength, inCart, setInCart }} >
             {children}
         </CartContext.Provider>
     )
