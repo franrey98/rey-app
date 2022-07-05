@@ -3,7 +3,6 @@ import Loader from './Loader'
 import { useState, useEffect } from 'react'
 import { db } from '../config/Firebase'
 import { getDocs, collection } from 'firebase/firestore'
-// getDoc, getDocs, doc, query, where, collection 
 
 const ItemListContainer = ({ greeting }) => {
 
@@ -15,8 +14,6 @@ const ItemListContainer = ({ greeting }) => {
         const collectionProductos = collection(db, 'productos')
         // Hago la consulta
         const consulta = getDocs(collectionProductos)
-
-        // const queryConsulta = query(collectionProductos, where('category', '==', category))
 
         // Ejecuto la consulta
         consulta.then((resultado) => {

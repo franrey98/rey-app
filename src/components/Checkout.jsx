@@ -2,6 +2,8 @@ import Error from "./Error"
 import { CartContext } from "../context/CartContext"
 import { useContext, useState } from "react"
 import { Link } from "react-router-dom"
+import { addDoc, collection, serverTimestamp } from "firebase/firestore"
+import { db } from "../config/Firebase"
 
 const Checkout = () => {
 
@@ -10,6 +12,8 @@ const Checkout = () => {
     const [nameUser, setNameuser] = useState('')
     const [email, setEmail] = useState('')
     const [tel, setTel] = useState('')
+
+    const [orderId, setOrderId] = useState('')
 
     const [error, setError] = useState(false)
 
@@ -29,20 +33,40 @@ const Checkout = () => {
         setError(false)
 
         const objetoCompra = {
-            nameUser,
-            email,
-            tel,
+            buyer: {
+                nameUser: nameUser,
+                email: email,
+                tel: tel
+            },
             cart,
-            totalDeCompra
+            totalDeCompra,
+            date: serverTimestamp()
 
         }
+
+        const ordenCompra = collection(db, 'ordenCompra');
+        addDoc(ordenCompra, objetoCompra).then(response => {
+            setOrderId(response.id)
+        })
 
         setNameuser('')
         setEmail('')
         setTel('')
         setCart([])
-        console.log(objetoCompra)
 
+    }
+
+    if (orderId !== '') {
+        return (
+            <div className="text-center mt-6">
+                <div className="col-12">
+                    <h1 className="font-semibold text-2xl mb-6">Gracias por tu compra</h1>
+                    <p className="font-medium text-xl">Tu orden de compra es la siguiente:</p>
+                    <p className="mt-1 mb-6 font-medium text-xl text-emerald-600">{orderId}</p>
+                    <Link to="/" className="mt-10 p-3 bg-slate-600 text-white rounded-sm text-lg font-semibold">Volver al inicio</Link>
+                </div>
+            </div>
+        )
     }
 
     return (
@@ -93,7 +117,7 @@ const Checkout = () => {
                     />
                 </div>
                 <div className=" mx-20">
-                    <button className="w-full rounded-sm font-semibold text-lg flex justify-center mt-4 p-2 bg-green-800 hover:bg-green-900 transition-all text-white">Completar compra</button>
+                    <button disabled={''} className="w-full rounded-sm font-semibold text-lg flex justify-center mt-4 p-2 bg-green-800 hover:bg-green-900 transition-all text-white">Completar compra</button>
                 </div>
             </form>
         </div>
