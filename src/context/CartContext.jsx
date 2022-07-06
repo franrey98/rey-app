@@ -29,6 +29,7 @@ export const CartProvider = ({ children }) => {
         let copyCart = [...cart]
         copyCart.splice(index, 1)
         setCart(copyCart)
+
         if (cart.length <= 0) {
             setInCart(false)
 
@@ -43,7 +44,12 @@ export const CartProvider = ({ children }) => {
             copyCart[index].cantidad--
             setCart(copyCart)
         }
-        if (cart.length === 0 || cart.every(item => item.cantidad === 0)) {
+
+        if (item.cantidad === 0) {
+            removeFromCart(item)
+        }
+
+        if (cart.length <= 0 || cart.every(item => item.cantidad === 0)) {
             setInCart(false)
             setCart([])
         }
