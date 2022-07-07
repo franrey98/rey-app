@@ -3,7 +3,7 @@ import Item from "./Item"
 const ItemFilter = ({ items }) => {
 
     return (
-        <div className="grid grid-cols-2 mx-32 gap-28 mt-8 md:mx-4">
+        <div className="grid grid-cols-2 mx-8 gap-16 mt-8 md:mx-44 md:gap-48">
             {items.map(p => (
                 <Item
                     key={p.id}

@@ -45,3 +45,12 @@ img {
     transform: rotate(360deg);
   }
 }
+
+.img-gym {
+  background-image: url(../src/img/gymMain.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  margin-top: 4rem;
+  height: 35rem;
+}

@@ -10,14 +10,12 @@ const ItemListContainer = ({ greeting }) => {
 
     useEffect(() => {
 
-        // Busco los productos en la base de datos
         const collectionProductos = collection(db, 'productos')
-        // Hago la consulta
+
         const consulta = getDocs(collectionProductos)
 
-        // Ejecuto la consulta
         consulta.then((resultado) => {
-            // Extraigo el id de cada producto
+
             const productosId = resultado.docs.map(productos => {
                 const aux = productos.data()
                 aux.id = productos.id

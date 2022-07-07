@@ -117,7 +117,7 @@ const Checkout = () => {
                     />
                 </div>
                 <div className=" mx-20">
-                    <button disabled={''} className="w-full rounded-sm font-semibold text-lg flex justify-center mt-4 p-2 bg-green-800 hover:bg-green-900 transition-all text-white">Completar compra</button>
+                    <button className="w-full rounded-sm font-semibold text-lg flex justify-center mt-4 p-2 bg-green-800 hover:bg-green-900 transition-all text-white">Completar compra</button>
                 </div>
             </form>
         </div>

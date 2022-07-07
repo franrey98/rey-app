@@ -12,9 +12,10 @@ import Productos from "./utils/Products";
 import { addDoc } from "firebase/firestore";
 import { collectionProd } from "./config/Firebase";
 import { CartProvider } from "./context/CartContext"; 
+import { AppBar } from '@mui/material';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-// Funcion para cargar todos los productos a la base de datos
+// Funcion para cargar todos los productos a la base de datos en caso de que se borren
 // Productos.map(producto => addDoc(collectionProd, producto));
 
 function App() {
@@ -22,7 +23,11 @@ function App() {
     <CartProvider>
       <BrowserRouter>
         <div className="pb-8">
-          <NavBar />
+          <div className="md:mb-36 mb-72">
+          <AppBar position="fixed">
+           <NavBar />
+          </AppBar>
+          </div>
             <Routes>
               <Route path="/" element={<Main />} />
               <Route path="/productos" element={<ItemListContainer greeting="Estos son nuestro productos!"/>} />
