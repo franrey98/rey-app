@@ -4,13 +4,13 @@ import { CartContext } from '../context/CartContext'
 
 const Cart = () => {
 
-    const { cart, removeFromCart, cartTotal, removeOneItem, inCart } = useContext(CartContext)
+    const { cart, removeFromCart, cartTotal, removeOneItem, inCart, cartTotalItems } = useContext(CartContext)
 
     return (
         <div className='pb-10'>
-            <h1 className='text-center mt-6 font-semibold text-2xl'>Carrito de Compras</h1>
+            <h1 className='text-center pt-8 font-semibold text-2xl tracking-widest'>CARRITO</h1>
             {inCart ?
-                <div>
+                <div className='md:flex gap-8 justify-evenly'>
                     <div className='flex flex-col md:flex-row justify-center gap-24 mx-14'>
                         {cart.map(item => (
                             <li className=' list-none mt-8 flex flex-col text-center' key={item.id}>
@@ -26,9 +26,10 @@ const Cart = () => {
                     <div className='flex flex-col justify-center items-center'>
                         <div className='text-center mt-10 bg-slate-900 text-white p-3 max-w-fit rounded-xl'>
                             <h2>Compra Total</h2>
+                            <p>Total de items: {cartTotalItems()}</p>
                             <p>Total: {cartTotal()}</p>
                         </div>
-                        <Link to='/checkout' className='mt-4 bg-green-900 p-2 rounded-md text-white text-xl'>Ir al checkout</Link>
+                        <Link to='/checkout' className='mt-4 bg-green-900 p-3 rounded-xl text-white text-xl'>Ir al checkout</Link>
                     </div>
                 </div>
                 : <div>
