@@ -51,8 +51,11 @@ De esta forma se inicia en forma local y se puede acceder en http://localhost:30
 Al realizar cualquier modificación en el código, se hará un reload mostrando los cambios.
 
 
-## Screenshots
+## Gif
 ---
+
+![Presentacion proyecto ecommerce](https://user-images.githubusercontent.com/85657027/178055429-58b8a124-3b45-4b57-aa50-be1f671fe887.gif)
+
 
 ### Documentación de React
 ---
