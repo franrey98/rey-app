@@ -21,7 +21,7 @@ Este proyecto es un e-commerce deportivo en el cual, se busca demostrar la funci
 - **CSS3**
 - **JavaScript**
 
-###Librerías y frameworks
+### Librerías y frameworks
 - **Node.js**
 - **React**
 - **Material UI**
